@@ -1,1 +1,17 @@
 <p>{{ title }}</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nama Pegawai</th>
+      <th>Keterangan</th>
+      <th>Nama Jabatan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pegawai of pegawais" >
+      <td>{{ pegawai.nama_pegawai }}</td>
+      <td>{{ pegawai.keterangan }}</td>
+      <td>{{ pegawai.nama_jabatan }}</td>
+    </tr>
+  </tbody>
+</table>

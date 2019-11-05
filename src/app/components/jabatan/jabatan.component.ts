@@ -10,7 +10,6 @@ export class JabatanComponent implements OnInit {
   @Output() title: string= "Data Jabatan";
   constructor() { }
 
-
   ngOnInit() {
   }
 

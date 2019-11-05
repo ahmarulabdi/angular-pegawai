@@ -1,4 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { Pegawai } from './../../models/Pegawai';
+import { PegawaiService } from './../../services/pegawai.service';
 
 @Component({
   selector: 'app-pegawai',
@@ -8,11 +10,18 @@ import { Component, OnInit, Output } from '@angular/core';
 export class PegawaiComponent implements OnInit {
 
   @Output() title = "Data Pegawai" ;
-  constructor() { }
+  pegawais: Pegawai[];
+  constructor(private pegawaiServices: PegawaiService) { }
 
   ngOnInit() {
-
+    this.dataPegawai();
   }
+
+  dataPegawai(){
+    this.pegawaiServices.data().subscribe(p => this.pegawais = p);
+  }
+
+
 
 
 
