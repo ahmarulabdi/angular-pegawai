@@ -9,7 +9,7 @@ import { PegawaiService } from './../../services/pegawai.service';
 })
 export class PegawaiComponent implements OnInit {
 
-  @Output() title = "Data Pegawai" ;
+  @Output() title = 'Data Pegawai' ;
   pegawais: Pegawai[];
   constructor(private pegawaiServices: PegawaiService) { }
 
@@ -17,7 +17,7 @@ export class PegawaiComponent implements OnInit {
     this.dataPegawai();
   }
 
-  dataPegawai(){
+  dataPegawai() {
     this.pegawaiServices.data().subscribe(p => this.pegawais = p);
   }
 

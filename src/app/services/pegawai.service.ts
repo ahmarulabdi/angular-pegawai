@@ -8,7 +8,6 @@ import { map } from 'rxjs/operators';
 const httpOptions = {
   headers : new HttpHeaders({
     'Content-Type' : 'application/json',
-
   })
 };
 
@@ -17,11 +16,15 @@ const httpOptions = {
 })
 export class PegawaiService {
 
-  url :string = 'http://localhost/lumen/lumen-pegawai/public/pegawai';
+  url = 'http://localhost/lumen/lumen-pegawai/public/pegawai';
 
   constructor(private httpClient: HttpClient) { }
 
-  data(): Observable<Pegawai[]>{
+  data(): Observable<Pegawai[]> {
     return this.httpClient.get<Pegawai[]>(`${this.url}/data`);
   }
+  detail(): Observable<Pegawai> {
+    return this.httpClient.get<Pegawai>(`${this.url}/detail/1`);
+  }
+
 }

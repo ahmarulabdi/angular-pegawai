@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PegawaiComponent } from './components/pegawai/pegawai.component';
 import { JabatanComponent } from './components/jabatan/jabatan.component';
+import {PegawaiDetailComponent} from './components/pegawai-detail/pegawai-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PegawaiComponent,
-    JabatanComponent
+    JabatanComponent,
+    PegawaiDetailComponent
   ],
   imports: [
     BrowserModule,
