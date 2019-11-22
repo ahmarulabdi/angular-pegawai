@@ -1,6 +1,7 @@
-<p>pegawai-detail works!</p>
-<ul>
-  <li>url {{ id }}</li>
-  <li>{{ pegawai.id }}</li>
-  <li>{{ pegawai.nama_pegawai }}</li>
+<button (click)="kembali()" class="btn btn-danger btn-sm" >Kembali</button>
+<ul class="list-group">
+  <li class="list-group-item">{{ pegawai.id }}</li>
+  <li class="list-group-item">{{ pegawai.nama_pegawai }}</li>
+  <li class="list-group-item">{{ pegawai.tgl_lahir }}</li>
+  <li class="list-group-item">{{ pegawai.keterangan }}</li>
 </ul>

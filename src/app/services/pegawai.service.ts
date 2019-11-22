@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Pegawai } from './../models/Pegawai';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import {Pegawai} from './../models/Pegawai';
+import { HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 
+type ArrayPegawaiResponse = HttpResponse<Pegawai[]>;
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -21,10 +22,14 @@ export class PegawaiService {
   constructor(private httpClient: HttpClient) { }
 
   data(): Observable<Pegawai[]> {
-    return this.httpClient.get<Pegawai[]>(`${this.url}/data`);
+    return this.httpClient.get<Pegawai[]>(`${this.url}/data`, { observe: 'response'}).pipe(
+      map((res: HttpResponse<Pegawai[]>) => res.body)
+    );
   }
-  detail(): Observable<Pegawai> {
-    return this.httpClient.get<Pegawai>(`${this.url}/detail/1`);
+  detail(id: number): Observable<Pegawai> {
+    return this.httpClient.get<Pegawai>(`${this.url}/detail/${id}`);
   }
+
+
 
 }

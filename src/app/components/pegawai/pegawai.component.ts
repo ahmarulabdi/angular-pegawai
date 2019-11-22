@@ -1,6 +1,9 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Pegawai } from './../../models/Pegawai';
+import {Pegawai} from './../../models/Pegawai';
 import { PegawaiService } from './../../services/pegawai.service';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-pegawai',
@@ -8,17 +11,19 @@ import { PegawaiService } from './../../services/pegawai.service';
   styleUrls: ['./pegawai.component.css']
 })
 export class PegawaiComponent implements OnInit {
-
-  @Output() title = 'Data Pegawai' ;
   pegawais: Pegawai[];
+  @Output() title = 'Data Pegawai' ;
   constructor(private pegawaiServices: PegawaiService) { }
 
   ngOnInit() {
     this.dataPegawai();
   }
 
+
   dataPegawai() {
-    this.pegawaiServices.data().subscribe(p => this.pegawais = p);
+    this.pegawaiServices.data().subscribe(
+      pegawais => this.pegawais = pegawais
+    );
   }
 
 

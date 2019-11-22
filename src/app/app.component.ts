@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string= 'Management Pegawai';
+  title = 'Management Pegawai';
 
   setTitle(event: any){
     this.title = event.title;

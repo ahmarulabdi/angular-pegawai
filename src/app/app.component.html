@@ -1,3 +1,9 @@
-<h3 class="text-center">Management Pegawai</h3>
-<app-navbar></app-navbar>
-<router-outlet (activate)="setTitle($event)"></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <h3 class="text-center">{{ title }}</h3>
+      <app-navbar></app-navbar>
+      <router-outlet (activate)="setTitle($event)"></router-outlet>
+    </div>
+  </div>
+</div>

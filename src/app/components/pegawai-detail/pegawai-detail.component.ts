@@ -4,6 +4,8 @@ import {PegawaiService} from 'src/app/services/pegawai.service';
 import {Pegawai} from 'src/app/models/Pegawai';
 import {switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {Location} from '@angular/common';
+import {Output} from '@angular/core';
 
 @Component({
   selector: 'app-pegawai-detail',
@@ -12,22 +14,29 @@ import {Observable} from 'rxjs';
 })
 export class PegawaiDetailComponent implements OnInit {
   pegawai: Pegawai;
-  id: number;
+  @Output() title = 'Detail Pegawai';
 
   constructor(
     protected pegawaiService: PegawaiService,
-    protected route: ActivatedRoute
+    protected route: ActivatedRoute,
+    protected location: Location
   ) {
   }
 
   ngOnInit() {
     this.getPegawai();
-    this.id = 1;
   }
   getPegawai() {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    this.pegawaiService.detail().subscribe(
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.pegawaiService.detail(id).subscribe(
       p => this.pegawai = p
     );
   }
+
+  kembali() {
+    this.location.back();
+  }
+
+
+
 }
