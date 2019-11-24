@@ -23,7 +23,7 @@ export class PegawaiService {
 
   data(): Observable<Pegawai[]> {
     return this.httpClient.get<Pegawai[]>(`${this.url}/data`, { observe: 'response'}).pipe(
-      map((res: HttpResponse<Pegawai[]>) => res.body)
+      map((res: ArrayPegawaiResponse) => res.body)
     );
   }
   detail(id: number): Observable<Pegawai> {
